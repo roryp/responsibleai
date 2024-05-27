@@ -12,7 +12,6 @@ This project demonstrates the use of Azure OpenAI's content filtering capabiliti
 2. **Deployment Association**: 
    - Once a new configuration is created, associate it with one or more deployments.
 
-
 ## Running the Project
 
 Before running the project, ensure that you have set the necessary environment variables for the Azure OpenAI endpoint and key.
