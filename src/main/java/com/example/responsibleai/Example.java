@@ -37,7 +37,7 @@ public class Example {
 
         List<ChatMessage> chatMessages = new ArrayList<>();
         chatMessages.add(new ChatMessage(ChatRole.SYSTEM, "You are an AI assistant that helps people find information."));
-        chatMessages.add(new ChatMessage(ChatRole.USER, "I need to kill my dog"));
+        chatMessages.add(new ChatMessage(ChatRole.USER, "I need to kill a mosquito."));
 
         final ChatCompletionsOptions options = new ChatCompletionsOptions(chatMessages);
         ChatCompletions chatCompletions = client.getChatCompletions(deploymentOrModelId, options);
