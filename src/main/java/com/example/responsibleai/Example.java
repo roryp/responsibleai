@@ -10,6 +10,8 @@ import com.azure.core.credential.AzureKeyCredential;
 import com.azure.core.http.policy.HttpLogDetailLevel;
 import com.azure.core.http.policy.HttpLogOptions;
 import com.azure.ai.openai.models.ChatMessage;
+import com.azure.identity.ManagedIdentityCredential;
+import com.azure.identity.ManagedIdentityCredentialBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,12 +28,15 @@ public class Example {
         LOGGER.log(Level.INFO, "Starting the application");
 
         String endpoint = System.getenv("AZURE_OPENAI_ENDPOINT");
-        String azureOpenaiKey = System.getenv("AZURE_OPENAI_KEY");
         String deploymentOrModelId = "gpt-4o";
+
+        ManagedIdentityCredential managedIdentityCredential = new ManagedIdentityCredentialBuilder()
+            .clientId("your-managed-identity-client-id") // Replace with your managed identity client ID
+            .build();
 
         OpenAIClient client = new OpenAIClientBuilder()
             .endpoint(endpoint)
-            .credential(new AzureKeyCredential(azureOpenaiKey))
+            .credential(managedIdentityCredential)
             .httpLogOptions(new HttpLogOptions().setLogLevel(HttpLogDetailLevel.BODY_AND_HEADERS))
             .buildClient();
 
@@ -51,3 +56,4 @@ public class Example {
         LOGGER.log(Level.INFO, "Ending the application");
     }
 }
+
