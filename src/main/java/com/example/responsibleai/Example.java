@@ -6,12 +6,11 @@ import com.azure.ai.openai.models.ChatChoice;
 import com.azure.ai.openai.models.ChatCompletions;
 import com.azure.ai.openai.models.ChatCompletionsOptions;
 import com.azure.ai.openai.models.ChatRole;
-import com.azure.core.credential.AzureKeyCredential;
+import com.azure.core.credential.TokenCredential;
 import com.azure.core.http.policy.HttpLogDetailLevel;
 import com.azure.core.http.policy.HttpLogOptions;
 import com.azure.ai.openai.models.ChatMessage;
-import com.azure.identity.ManagedIdentityCredential;
-import com.azure.identity.ManagedIdentityCredentialBuilder;
+import com.azure.identity.DefaultAzureCredentialBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,13 +29,11 @@ public class Example {
         String endpoint = System.getenv("AZURE_OPENAI_ENDPOINT");
         String deploymentOrModelId = "gpt-4o";
 
-        ManagedIdentityCredential managedIdentityCredential = new ManagedIdentityCredentialBuilder()
-            .clientId("your-managed-identity-client-id") // Replace with your managed identity client ID
-            .build();
+        TokenCredential credential = new DefaultAzureCredentialBuilder().build();
 
         OpenAIClient client = new OpenAIClientBuilder()
             .endpoint(endpoint)
-            .credential(managedIdentityCredential)
+            .credential(credential)
             .httpLogOptions(new HttpLogOptions().setLogLevel(HttpLogDetailLevel.BODY_AND_HEADERS))
             .buildClient();
 
@@ -51,6 +48,12 @@ public class Example {
             ChatMessage message = choice.getMessage();
             LOGGER.log(Level.INFO, "Message:");
             LOGGER.log(Level.INFO, message.getContent());
+        }
+
+        LOGGER.log(Level.INFO, "Ending the application");
+    }
+}
+
         }
 
         LOGGER.log(Level.INFO, "Ending the application");
