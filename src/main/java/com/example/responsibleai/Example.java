@@ -54,9 +54,3 @@ public class Example {
     }
 }
 
-        }
-
-        LOGGER.log(Level.INFO, "Ending the application");
-    }
-}
-
