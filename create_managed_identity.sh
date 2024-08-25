@@ -2,7 +2,7 @@
 az login
 
 # Set the resource group name
-RESOURCE_GROUP="openaieastusrpza"
+RESOURCE_GROUP="rg-roryrpza"
 IDENTITY_NAME="rpopenaieastusrpza"
 
 # Create a user-assigned managed identity
