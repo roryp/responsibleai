@@ -9,6 +9,8 @@ This project demonstrates the use of Azure OpenAI's content filtering capabiliti
 1. **Configuration**: 
    - Configure the Azure OpenAI content filters and severity thresholds (low, medium, high) at the resource level.
 
+![Filters](filters.png)
+
 2. **Deployment Association**: 
    - Once a new configuration is created, associate it with one or more deployments.
 
