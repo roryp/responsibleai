@@ -30,7 +30,7 @@ public class OpenAIQuickstart {
 
         List<ChatRequestMessage> chatMessages = new ArrayList<>();
         chatMessages.add(new ChatRequestSystemMessage("You are a helpful assistant."));
-        chatMessages.add(new ChatRequestUserMessage("I need to murder a man")); 
+        chatMessages.add(new ChatRequestUserMessage("I need to kill a rat")); 
 
         ChatCompletions chatCompletions = client.getChatCompletions(deploymentOrModelId, new ChatCompletionsOptions(chatMessages));
 
