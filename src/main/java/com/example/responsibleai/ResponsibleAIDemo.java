@@ -14,9 +14,11 @@ import com.azure.core.util.Configuration;
 
 import java.util.ArrayList;
 import java.util.List;
-
-
-public class OpenAIQuickstart {
+/**
+ * The `ResponsibleAIDemo` class demonstrates the usage of the Responsible AI API.
+ * It expects an error message to be returned as a response.
+ */
+public class ResponsibleAIDemo {
 
     public static void main(String[] args) {
         String azureOpenaiKey = Configuration.getGlobalConfiguration().get("AZURE_OPENAI_API_KEY");
